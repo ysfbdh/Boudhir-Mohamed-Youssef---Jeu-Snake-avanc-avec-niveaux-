@@ -1,0 +1,45 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu snake</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <body>
+    <div class="container">
+        <h1>🐍 Jeu Snake </h1>
+        
+        <div class="game-info">
+            <div class="info-box">
+                <div class="info-label">Score</div>
+                <div class="info-value" id="score">0</div>
+            </div>
+            <div class="info-box level-indicator">
+                <div class="info-label">Niveau</div>
+                <div class="info-value" id="level">1</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Meilleur</div>
+                <div class="info-value high-score" id="highScore">0</div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+        <div class="controls">
+            <button id="startBtn">Démarrer</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="restartBtn">Recommencer</button>
+        </div>
+
+        <div class="instructions">
+            🎮 Utilisez les flèches pour diriger le serpent<br>
+            🍎 Pommes rouges: +10 points | 🌟 Bonus dorés: +50 points<br>
+            ⚠️ Évitez les murs et les obstacles!
+        </div>
+    </div>
+
+    <div class="bonus-notification" id="bonusNotif">+50 Points Bonus! 🌟</div>
+</body>
