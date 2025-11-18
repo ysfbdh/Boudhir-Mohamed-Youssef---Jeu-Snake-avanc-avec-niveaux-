@@ -1,0 +1,228 @@
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', 'Segoe UI', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00ff00;
+            padding: 20px 0;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .grid-container {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 49px,
+                    rgba(0, 255, 0, 0.15) 49px,
+                    rgba(0, 255, 0, 0.15) 51px,
+                    transparent 51px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 49px,
+                    rgba(0, 255, 0, 0.15) 49px,
+                    rgba(0, 255, 0, 0.15) 51px,
+                    transparent 51px
+                );
+            background-size: 50px 50px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.3), 0 0 80px rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+        }
+
+        h1 {
+            color: #00ff00;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 3em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0px 0px 10px currentColor);
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: inline-block;
+            width: 0.2em;
+            height: 0.7em;
+            background-color: currentColor;
+            margin-left: 0.1em;
+            animation: blink 1s linear infinite forwards;
+            vertical-align: baseline;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                visibility: visible;
+            }
+            51%, 100% {
+                visibility: hidden;
+            }
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .info-box {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 15px 25px;
+            border-radius: 10px;
+            min-width: 120px;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        .info-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        #gameCanvas {
+            border: 3px solid #00ff00;
+            border-radius: 10px;
+            background: #0a0a0a;
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1);
+            display: block;
+            margin: 0 auto;
+            filter: brightness(1.15);
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.1em;
+            font-family: 'Share Tech Mono', monospace;
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: rgba(0, 255, 0, 0.2);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 60px rgba(0, 255, 0, 0.5);
+            animation: slideIn 0.3s ease;
+            max-width: 400px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #00ff00;
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        .modal p {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #00ff00;
+        }
+
+        .high-score {
+            color: #00ff00;
+            font-weight: bold;
+            text-shadow: 0 0 15px currentColor;
+        }
+
+        .level-indicator {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
