@@ -1,15 +1,21 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu snake</title>
+    <title>Snake Avancé - Rétro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
+   
 </head>
 <body>
-    <body>
+    <div class="grid-container"></div>
+
     <div class="container">
-        <h1>🐍 Jeu Snake </h1>
+        <h1>🐍 SNAKE</h1>
         
         <div class="game-info">
             <div class="info-box">
@@ -34,5 +40,22 @@
             <button id="restartBtn">Recommencer</button>
         </div>
 
+        <div class="instructions">
+            🎮 Utilisez les flèches pour diriger le serpent<br>
+            🍎 Pommes rouges: +10 points | +1 segment<br>
+            🌀 Portails: Apparaissent brièvement toutes les 15s (actifs 3s)
+        </div>
     </div>
+
+    <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+            <h2>GAME OVER</h2>
+            <p>Score final: <span id="finalScore">0</span></p>
+            <p>Niveau atteint: <span id="finalLevel">1</span></p>
+            <p class="high-score">Meilleur score: <span id="modalHighScore">0</span></p>
+            <button onclick="window.restartGame()">Rejouer</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+</html>
